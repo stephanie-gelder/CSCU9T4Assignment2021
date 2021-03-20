@@ -46,8 +46,8 @@ public class RefTest {
         System.out.println("getTitle");
         Ref instance = null;
         String expResult = "";
-        String result = instance.getTitle();
-        assertEquals(expResult, result);
+//        String result = instance.getTitle();
+//        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -60,8 +60,8 @@ public class RefTest {
         System.out.println("getAuthors");
         Ref instance = null;
         String expResult = "";
-        String result = instance.getAuthors();
-        assertEquals(expResult, result);
+//        String result = instance.getAuthors();
+//        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -74,8 +74,8 @@ public class RefTest {
         System.out.println("getPubYear");
         Ref instance = null;
         String expResult = "";
-        String result = instance.getPubYear();
-        assertEquals(expResult, result);
+//        String result = instance.getPubYear();
+//        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -88,8 +88,8 @@ public class RefTest {
         System.out.println("getPublisher");
         Ref instance = null;
         String expResult = "";
-        String result = instance.getPublisher();
-        assertEquals(expResult, result);
+//        String result = instance.getPublisher();
+//        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -102,8 +102,8 @@ public class RefTest {
         System.out.println("getDoi");
         Ref instance = null;
         String expResult = "";
-        String result = instance.getDoi();
-        assertEquals(expResult, result);
+//        String result = instance.getDoi();
+//        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -116,8 +116,8 @@ public class RefTest {
         System.out.println("getDateAdded");
         Ref instance = null;
         String expResult = "";
-        String result = instance.getDateAdded();
-        assertEquals(expResult, result);
+//        String result = instance.getDateAdded();
+//        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -130,8 +130,8 @@ public class RefTest {
         System.out.println("getCitation");
         Ref instance = null;
         String expResult = "";
-        String result = instance.getCitation();
-        assertEquals(expResult, result);
+//        String result = instance.getCitation();
+//        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

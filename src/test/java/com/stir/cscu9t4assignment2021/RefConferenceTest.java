@@ -59,8 +59,8 @@ public class RefConferenceTest {
         System.out.println("getCitation");
         RefConference instance = null;
         String expResult = "";
-        String result = instance.getCitation();
-        assertEquals(expResult, result);
+//        String result = instance.getCitation();
+//        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

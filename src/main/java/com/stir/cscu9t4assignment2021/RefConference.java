@@ -23,8 +23,22 @@ public class RefConference extends Ref{
         //year =
     }//constructor
 
-    @Override
-    public String getCitation() {
-        return super.getCitation();
+
+    public String getVenue(){
+        return venue;
     }
+    public void setVenue(String newVenue){
+        this.venue = newVenue;
+    }
+
+    public String getLocation(){
+        return location;
+    }
+    public void setLocation(String newLocation){
+        this.location = newLocation;
+    }
+//    @Override
+//    public String getCitation() {
+//        return super.getCitation();
+//    }
 }

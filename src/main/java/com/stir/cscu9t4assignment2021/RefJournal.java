@@ -26,8 +26,28 @@ public class RefJournal extends Ref{
         //year =
     }//constructor
 
-    @Override
-    public String getCitation() {
-        return super.getCitation();
+    public String getJournal(){
+        return journal;
     }
+    public void setJournal(String newJournal){
+        this.journal = newJournal;
+    }
+
+    public int getVolume(){
+        return volume;
+    }
+    public void setVolume(int newVolume){
+        this.volume = newVolume;
+    }
+
+    public int getIssue(){
+        return issue;
+    }
+    public void setIssue(int newIssue){
+        this.issue = newIssue;
+    }
+//    @Override
+//    public String getCitation() {
+//        return super.getCitation();
+//    }
 }

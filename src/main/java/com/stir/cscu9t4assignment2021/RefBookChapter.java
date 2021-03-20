@@ -23,8 +23,21 @@ public class RefBookChapter extends Ref{
         //year =
     }//constructor
 
-    @Override
-    public String getCitation() {
-        return super.getCitation();
+    public String getBook(){
+        return book;
     }
+    public void setBook(String newBook){
+        this.book = newBook;
+    }
+
+    public String getEditor(){
+        return editor;
+    }
+    public void setEditor(String newEditor){
+        this.editor = newEditor;
+    }
+    //@Override
+//    public String getCitation() {
+//        return super.getCitation();
+//    }
 }
