@@ -11,6 +11,7 @@ public class RefCollection {
     }//constructor
 
     public void addCite(Ref ref){
+        //Collection.add(ref);
     }
 
     public String lookUpByJournal(String journal){

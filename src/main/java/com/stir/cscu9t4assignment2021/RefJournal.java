@@ -1,23 +1,23 @@
 package com.stir.cscu9t4assignment2021;
 
 public class RefJournal extends Ref{
-    private String journal;
+    private String journalTitle;
     private int volume;
     private int issue;
 
-    public RefJournal(String title, String journal, String authors, String doi,
-                      String publisherName, int pubYear, int volume, int issue)
+    public RefJournal(String title, String journalTitle, String authors, String doi,
+                      String publisher, int pubYear, int volume, int issue)
     {
-        super(title, authors, doi, publisherName, pubYear);
-        journal = journal;
+        super(title, authors, doi, publisher, pubYear);
+        journalTitle = journalTitle;
         volume = volume;
         issue = issue;
     }//constructor
 
     public RefJournal(String title, String journal, String authors, String doi,
-                      String publisherName, int pubYear, int volume, int issue, int day, int month, int year)
+                      String publisher, int pubYear, int volume, int issue, int day, int month, int year)
     {
-        super(title, authors, doi, publisherName, pubYear);
+        super(title, authors, doi, publisher, pubYear);
         journal = journal;
         volume = volume;
         issue = issue;
@@ -27,10 +27,10 @@ public class RefJournal extends Ref{
     }//constructor
 
     public String getJournal(){
-        return journal;
+        return journalTitle;
     }
     public void setJournal(String newJournal){
-        this.journal = newJournal;
+        this.journalTitle = newJournal;
     }
 
     public int getVolume(){

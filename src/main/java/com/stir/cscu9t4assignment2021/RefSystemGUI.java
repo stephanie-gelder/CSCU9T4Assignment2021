@@ -136,7 +136,7 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         outputArea.setEditable(false);
         setSize(800, 500);
         setVisible(true);
-        //blankDisplay();
+        blankDisplay();
 
     } //constructor
     
@@ -144,15 +144,16 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         String message = "";
         if(event.getSource()==addRef){
             if (rbBook.isSelected()){
-               // message = addBookReference("book");
+               message = addCite("book");
             }
             if (rbJournal.isSelected()){
-                //message = addJournalReference("journal");
+                message = addCite("journal");
             }
             if (rbConference.isSelected()) {
-               // message = addConferenceReference("conference");
+               message = addCite("conference");
             }
         }
+
         if (event.getSource() == rbBook){
             if(rbBook.isSelected()){
                labTitle.setEnabled(false);
@@ -213,5 +214,54 @@ public class RefSystemGUI extends JFrame implements ActionListener {
                 location.setEnabled(true);
             }
         }
+        outputArea.setText(message);
+        blankDisplay();
+    }//actionPerformed
+
+    public String addCite(String what){
+        String message = "Citation added\n";
+        System.out.println("Adding "+what+" citation to the system");
+        String t = title.getText();
+        String a = authors.getText();
+        String d = doi.getText();
+        String p = publisher.getText();
+        int py = Integer.parseInt(pubYear.getText());
+        Ref r;
+
+        if(what.equals("book")) {
+            String bt = bookTitle.getText();
+            String e = editor.getText();
+            r = new RefBookChapter(t, bt, a, d, p, e, py);
+        }
+        else if(what.equals("journal")){
+            String jt = journalTitle.getText();
+            int i = Integer.parseInt(issue.getText());
+            int v = Integer.parseInt(volume.getText());
+            r = new RefJournal(t, jt, a, d, p, py, v, i);
+        }
+        else if(what.equals("conference")){
+            String v = venue.getText();
+            String l = location.getText();
+            r = new RefConference(t, v, a, d, p, l, py);
+        }
+        else {
+            r = new Ref(t, a, d, p, py);
+        }
+        bibliography.addCite(r);
+        return message;
     }
+    public void blankDisplay(){
+        title.setText("");
+        bookTitle.setText("");
+        editor.setText("");
+        issue.setText("");
+        venue.setText("");
+        volume.setText("");
+        journalTitle.setText("");
+        location.setText("");
+        authors.setText("");
+        doi.setText("");
+        publisher.setText("");
+        pubYear.setText("");
+    } //blankDisplay
 }

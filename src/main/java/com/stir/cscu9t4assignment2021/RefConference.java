@@ -5,17 +5,17 @@ public class RefConference extends Ref{
     private String location;
 
     public RefConference(String title, String venue, String authors, String doi,
-                         String publisherName, String location, int pubYear)
+                         String publisher, String location, int pubYear)
     {
-        super(title, authors, doi, publisherName, pubYear);
+        super(title, authors, doi, publisher, pubYear);
         venue = venue;
         location = location;
     }//constructor
 
     public RefConference(String title, String venue, String authors, String doi,
-                         String publisherName, String location, int pubYear, int day, int month, int year)
+                         String publisher, String location, int pubYear, int day, int month, int year)
     {
-        super(title, authors, doi, publisherName, pubYear);
+        super(title, authors, doi, publisher, pubYear);
         venue = venue;
         location = location;
         //day =
