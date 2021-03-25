@@ -14,6 +14,8 @@ import java.lang.Number;
 /**
  *
  * @author Stephanie
+ *
+ * Creating all elements to be displayed in the GUI window
  */
 public class RefSystemGUI extends JFrame implements ActionListener {
 
@@ -69,7 +71,9 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         RefSystemGUI applic = new RefSystemGUI();
     } //main
 
-    //set up to GUI
+    /**
+     * Method to add all elements to the GUI
+     */
     public RefSystemGUI() {
         super("Bibliography");
         setLayout(new FlowLayout());
@@ -139,7 +143,11 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         blankDisplay();
 
     } //constructor
-    
+
+    /**
+     * actionPerformed method 'attaches' actions to each 'action event' triggered by the user in the GUI
+     * @param event
+     */
     public void actionPerformed(ActionEvent event) {
         String message = "";
         if(event.getSource()==addRef){
@@ -218,6 +226,11 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         blankDisplay();
     }//actionPerformed
 
+    /**
+     * Method to add a citation to the bibliography according to the type of reference chosen by the user
+     * @param what
+     * @return
+     */
     public String addCite(String what){
         String message = "Citation added\n";
         System.out.println("Adding "+what+" citation to the system");
@@ -250,6 +263,10 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         bibliography.addCite(r);
         return message;
     }
+
+    /**
+     * Method to 'reset' the GUI display to be blank once a reference has been added to the bibliography
+     */
     public void blankDisplay(){
         title.setText("");
         bookTitle.setText("");
