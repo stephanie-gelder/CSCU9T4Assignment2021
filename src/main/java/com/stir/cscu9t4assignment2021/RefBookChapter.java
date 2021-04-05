@@ -26,18 +26,17 @@ public class RefBookChapter extends Ref{
     public String getBook(){
         return bookTitle;
     }
-    public void setBook(String newBook){
-        this.bookTitle = newBook;
-    }
 
     public String getEditor(){
         return editor;
     }
-    public void setEditor(String newEditor){
-        this.editor = newEditor;
+
+    @Override
+    public String getCitation() {
+        String result = getTitle()+ "by " + getAuthors()+ " published in "
+                + getPubYear()+ " by " + getPublisher()+ "DOI number of: "
+                + getDoi()+ " - reference added on " + getDateAdded()
+                + " book title: " + getBook() + " edited by: " + getEditor();
+        return result;
     }
-    //@Override
-//    public String getCitation() {
-//        return super.getCitation();
-//    }
 }

@@ -29,25 +29,22 @@ public class RefJournal extends Ref{
     public String getJournal(){
         return journalTitle;
     }
-    public void setJournal(String newJournal){
-        this.journalTitle = newJournal;
-    }
 
     public int getVolume(){
         return volume;
-    }
-    public void setVolume(int newVolume){
-        this.volume = newVolume;
     }
 
     public int getIssue(){
         return issue;
     }
-    public void setIssue(int newIssue){
-        this.issue = newIssue;
+
+    @Override
+    public String getCitation() {
+        String result = getTitle()+ "by " + getAuthors()+ " published in "
+            + getPubYear()+ " by " + getPublisher()+ "DOI number of: "
+            + getDoi()+ " - reference added on " + getDateAdded()
+            + " journal: " + getJournal() + " volume " + getVolume()
+            + "issue " + getIssue();
+        return result;
     }
-//    @Override
-//    public String getCitation() {
-//        return super.getCitation();
-//    }
 }

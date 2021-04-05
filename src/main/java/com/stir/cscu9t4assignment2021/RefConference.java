@@ -27,18 +27,17 @@ public class RefConference extends Ref{
     public String getVenue(){
         return venue;
     }
-    public void setVenue(String newVenue){
-        this.venue = newVenue;
-    }
 
     public String getLocation(){
         return location;
     }
-    public void setLocation(String newLocation){
-        this.location = newLocation;
+
+    @Override
+    public String getCitation() {
+        String result = getTitle()+ "by " + getAuthors()+ " published in "
+                + getPubYear()+ " by " + getPublisher()+ "DOI number of: "
+                + getDoi()+ " - reference added on " + getDateAdded()+
+                " conference venue " + getVenue() + " at location " + getLocation();
+        return result;
     }
-//    @Override
-//    public String getCitation() {
-//        return super.getCitation();
-//    }
 }

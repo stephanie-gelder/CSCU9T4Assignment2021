@@ -1,7 +1,7 @@
 package com.stir.cscu9t4assignment2021;
 
 import java.util.Calendar;
-import java.util.Date;
+//import java.util.Date;
 
 public class Ref {
     private String title;
@@ -9,7 +9,7 @@ public class Ref {
     private String doi;
     private String publisher;
     private int pubYear;
-    private Date dateAdded;
+    private Calendar dateAdded;
 
     public Ref(String title, String authors, String doi, String publisher, int pubYear){
         title = title;
@@ -26,31 +26,41 @@ public class Ref {
         pubYear = pubYear;
         publisher = publisher;
         doi = doi;
-        //dateAdded = day,month,year;
+        Calendar inst = Calendar.getInstance();
+        inst.set(year,month-1,day);
+        dateAdded = inst;
     }//constructor
 
-//    public String getAuthors(){
-//        return authors;
-//    }
-    public void setAuthors(String[] newAuthor){
-        this.authors = newAuthor;
+    public String getTitle(){
+        return title;
     }
-//    public String getPubYear(){
-//        return pubYear;
-//    }
-    public void setPubYear(int newPubYear){
-        this.pubYear = newPubYear;
+
+    public String getAuthors(){
+        String result = String.join(", ", authors);
+        return result;
     }
-//    public String getDateAdded(){
-//        return dateAdded;
-//    }
-    public void setDateAdded(Date newDate){
-        this.dateAdded = newDate;
+
+    public String getPubYear(){
+        return pubYear.toString();
     }
-//    public String getCitation(){
-//        return citation;
-//    }
-//    public void setCitation(String newCitation){
-//        this.citation = newCitation;
-//    }
+
+    public String getPublisher(){
+        return publisher;
+    }
+
+    public String getDoi(){
+        return doi;
+    }
+
+    public String getDateAdded(){
+        return dateAdded.toString();
+    }
+
+    public String getCitation(){
+        String result = getTitle()+ "by " + getAuthors()+ " published in "
+                + getPubYear()+ " by " + getPublisher()+ "DOI number of: "
+                + getDoi()+ " - reference added on " + getDateAdded();
+        return result;
+    }
+
 }
