@@ -11,7 +11,7 @@ public class RefCollection {
     }//constructor
 
     public void addCite(Ref ref){
-        collection.add(ref);
+        //collection.add(ref);
     }
 
     public String lookUpByJournal(String journal){
@@ -26,13 +26,13 @@ public class RefCollection {
         return publisher;
     }
 
-    public int getNumberOfRefs(String type){
-        return ;
-    }
-
-    public String exportAll(){
-        return ;
-    }
+//    public int getNumberOfRefs(String type){
+//     //   return ;
+//    }
+//
+//    public String exportAll(){
+//       // return ;
+//    }
 
     public String importMany(String filePath){
         return filePath;
