@@ -1,5 +1,7 @@
 package com.stir.cscu9t4assignment2021;
 
+import java.util.Calendar;
+
 public class RefConference extends Ref{
     private String venue;
     private String location;
@@ -18,9 +20,8 @@ public class RefConference extends Ref{
         super(title, authors, doi, publisher, pubYear);
         venue = venue;
         location = location;
-        //day =
-        //month =
-        //year =
+        Calendar inst = Calendar.getInstance();
+        inst.set(year,month-1,day);
     }//constructor
 
 

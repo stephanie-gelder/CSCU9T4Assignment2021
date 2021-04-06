@@ -29,26 +29,29 @@ public class RefSystemGUI extends JFrame implements ActionListener {
     //creating the generic labels for references
     private JLabel labTitle = new JLabel("Title:");
     private JLabel labAuthors = new JLabel("Authors:");
-    private JLabel labDOI = new JLabel("DOI:");
-    private JLabel labPublisher = new JLabel("Publisher:");
     private JLabel labPubYear = new JLabel("Year Published:");
+    private JLabel labPublisher = new JLabel("Publisher:");
+    private JLabel labDOI = new JLabel("DOI:");
+    private JLabel labDateAdded = new JLabel("Date Added:");
     //creating the additional labels for BOOK references
     private JLabel labBookT = new JLabel("Book Title:");
-    private JLabel labEditor = new JLabel("Editor");
+    private JLabel labEditor = new JLabel("Editor:");
     //creating the additional labels for JOURNAL references
     private JLabel labJournalT = new JLabel("Journal Title:");
     private JLabel labIssue = new JLabel("Issue Number:");
     private JLabel labVol = new JLabel("Volume Number:");
     //creating the additional labels for CONFERENCE references
     private JLabel labVenue = new JLabel("Venue:");
-    private JLabel labLocation = new JLabel("Location");
+    private JLabel labLocation = new JLabel("Location:");
 
     //creating text fields for the generic labels
     private JTextField title = new JTextField(20);
     private JTextField authors = new JTextField(30);
-    private JTextField doi = new JTextField(10);
-    private JTextField publisher = new JTextField(20);
     private JTextField pubYear = new JTextField(10);
+    private JTextField publisher = new JTextField(20);
+    private JTextField doi = new JTextField(10);
+    private JTextField dateAdded = new JTextField(10);
+
     //creating the text fields for the BOOK specific labels
     private JTextField bookTitle = new JTextField(20);
     private JTextField editor = new JTextField(20);
@@ -62,6 +65,20 @@ public class RefSystemGUI extends JFrame implements ActionListener {
 
     //creating the add reference button
     private JButton addRef = new JButton("Add Reference");
+
+    //creating the buttons, text fields and labels for search fields
+    //creating elements to search journal citations
+    private JLabel labJSearch = new JLabel("Journal Title to search for:");
+    private JTextField jSearchField = new JTextField(20);
+    private JButton jSearch = new JButton("Search Journals");
+    //creating the button to search publisher citations
+    private JLabel labPSearch = new JLabel("Publisher to search for:");
+    private JTextField pSearchField = new JTextField(20);
+    private JButton pSearch = new JButton("Search for Publisher");
+    //creating button to search citations for conference venue
+    private JLabel labCVenSearch = new JLabel("Conference Venue to search for:");
+    private JTextField cVenSearchField = new JTextField(20);
+    private JButton cVenSearch = new JButton("Search for Conference Venue");
 
     private RefCollection bibliography = new RefCollection();
 
@@ -82,15 +99,15 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         add(labRefType);
         //adding the radio buttons to the button group
         bg.add(rbBook);
-        bg.add(rbConference);
         bg.add(rbJournal);
+        bg.add(rbConference);
         //adding the radio buttons and their action listeners
         add(rbBook);
         rbBook.addActionListener(this);
-        add(rbConference);
-        rbConference.addActionListener(this);
         add(rbJournal);
         rbJournal.addActionListener(this);
+        add(rbConference);
+        rbConference.addActionListener(this);
 
         //adding labels and text fields to GUI
         add(labTitle);
@@ -99,15 +116,18 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         add(labAuthors);
         add(authors);
         authors.setEditable(true);
-        add(labDOI);
-        add(doi);
-        doi.setEditable(true);
-        add(labPublisher);
-        add(publisher);
-        publisher.setEditable(true);
         add(labPubYear);
         add(pubYear);
         pubYear.setEditable(true);
+        add(labPublisher);
+        add(publisher);
+        publisher.setEditable(true);
+        add(labDOI);
+        add(doi);
+        doi.setEditable(true);
+        add(labDateAdded);
+        add(dateAdded);
+        dateAdded.setEditable(true);
 
         add(labBookT);
         add(bookTitle);
@@ -119,12 +139,12 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         add(labJournalT);
         add(journalTitle);
         journalTitle.setEditable(true);
-        add(labIssue);
-        add(issue);
-        issue.setEditable(true);
         add(labVol);
         add(volume);
         volume.setEditable(true);
+        add(labIssue);
+        add(issue);
+        issue.setEditable(true);
 
         add(labVenue);
         add(venue);
@@ -136,9 +156,24 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         add(addRef);
         addRef.addActionListener(this);
 
+        add(labJSearch);
+        add(jSearchField);
+        jSearchField.setEditable(true);
+        add(jSearch);
+
+        add(labPSearch);
+        add(pSearchField);
+        pSearchField.setEditable(true);
+        add(pSearch);
+
+        add(labCVenSearch);
+        add(cVenSearchField);
+        cVenSearchField.setEditable(true);
+        add(cVenSearch);
+
         add(outputArea);
         outputArea.setEditable(false);
-        setSize(800, 500);
+        setSize(780, 600);
         setVisible(true);
         blankDisplay();
 
@@ -164,8 +199,6 @@ public class RefSystemGUI extends JFrame implements ActionListener {
 
         if (event.getSource() == rbBook){
             if(rbBook.isSelected()){
-               labTitle.setEnabled(false);
-               title.setEnabled(false);
                labIssue.setEnabled(false);
                issue.setEnabled(false);
                labVol.setEnabled(false);
@@ -184,8 +217,6 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         }
         if (event.getSource() == rbJournal){
             if(rbJournal.isSelected()){
-                labTitle.setEnabled(false);
-                title.setEnabled(false);
                 labVenue.setEnabled(false);
                 venue.setEnabled(false);
                 labLocation.setEnabled(false);
@@ -204,8 +235,6 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         }
         if(event.getSource() == rbConference){
             if (rbConference.isSelected()){
-                labTitle.setEnabled(false);
-                title.setEnabled(false);
                 labBookT.setEnabled(false);
                 bookTitle.setEnabled(false);
                 labEditor.setEnabled(false);
@@ -221,6 +250,16 @@ public class RefSystemGUI extends JFrame implements ActionListener {
                 labLocation.setEnabled(true);
                 location.setEnabled(true);
             }
+        }
+
+        if(event.getSource()==jSearch){
+            message = searchCitations("journal");
+        }
+        if(event.getSource()==pSearch){
+            message = searchCitations("publisher");
+        }
+        if(event.getSource()==cVenSearch){
+            message = searchCitations("confVen");
         }
         outputArea.setText(message);
         blankDisplay();
@@ -264,6 +303,28 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         return message;
     }
 
+    /**
+     * Method to search the citations based on the input from the user
+     * @param what
+     * @return
+     */
+    public String searchCitations(String what){
+        String message = "";
+        System.out.println("Searching for citations from " + what);
+        if(what.equals("journal")){
+
+        }
+        else if(what.equals("publisher")){
+
+        }
+        else if(what.equals("confVen")){
+
+        }
+        else{
+            message = "No citations found matching the search criteria";
+        }
+        return message;
+    }
     /**
      * Method to 'reset' the GUI display to be blank once a reference has been added to the bibliography
      */

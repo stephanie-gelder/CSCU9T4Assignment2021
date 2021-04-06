@@ -1,15 +1,17 @@
 package com.stir.cscu9t4assignment2021;
 
+import java.util.Calendar;
+
 public class RefJournal extends Ref{
-    private String journalTitle;
+    private String journal;
     private int volume;
     private int issue;
 
-    public RefJournal(String title, String journalTitle, String authors, String doi,
+    public RefJournal(String title, String journal, String authors, String doi,
                       String publisher, int pubYear, int volume, int issue)
     {
         super(title, authors, doi, publisher, pubYear);
-        journalTitle = journalTitle;
+        journal = journal;
         volume = volume;
         issue = issue;
     }//constructor
@@ -21,13 +23,12 @@ public class RefJournal extends Ref{
         journal = journal;
         volume = volume;
         issue = issue;
-        //day =
-        //month =
-        //year =
+        Calendar inst = Calendar.getInstance();
+        inst.set(year,month-1,day);
     }//constructor
 
     public String getJournal(){
-        return journalTitle;
+        return journal;
     }
 
     public int getVolume(){

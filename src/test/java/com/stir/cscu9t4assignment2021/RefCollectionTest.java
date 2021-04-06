@@ -74,8 +74,8 @@ public class RefCollectionTest {
         String venue = "";
         RefCollection instance = new RefCollection();
         String expResult = "";
-        //String result = instance.loopUpByVenue(venue);
-        //assertEquals(expResult, result);
+        String result = instance.lookUpByVenue(venue);
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -104,8 +104,8 @@ public class RefCollectionTest {
         String type = "";
         RefCollection instance = new RefCollection();
         int expResult = 0;
-//        int result = instance.getNumberOfRefs(type);
-//        assertEquals(expResult, result);
+        int result = instance.getNumberOfRefs(type);
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -118,8 +118,8 @@ public class RefCollectionTest {
         System.out.println("exportAll");
         RefCollection instance = new RefCollection();
         String expResult = "";
-//        String result = instance.exportAll();
-//        assertEquals(expResult, result);
+        String result = instance.exportAll();
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

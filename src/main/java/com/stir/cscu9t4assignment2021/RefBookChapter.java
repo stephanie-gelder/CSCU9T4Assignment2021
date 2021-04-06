@@ -1,5 +1,7 @@
 package com.stir.cscu9t4assignment2021;
 
+import java.util.Calendar;
+
 public class RefBookChapter extends Ref{
     private String bookTitle;
     private String editor;
@@ -18,9 +20,8 @@ public class RefBookChapter extends Ref{
         super(title, authors, doi, publisher, pubYear);
         book = book;
         editor = editor;
-        //day =
-        //month =
-        //year =
+        Calendar inst = Calendar.getInstance();
+        inst.set(year,month-1,day);
     }//constructor
 
     public String getBook(){

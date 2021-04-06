@@ -3,7 +3,7 @@ package com.stir.cscu9t4assignment2021;
 import java.util.Collection;
 
 public class RefCollection {
-    private Ref Collection;
+    private Ref collection;
 
 
     public RefCollection(){
@@ -11,7 +11,7 @@ public class RefCollection {
     }//constructor
 
     public void addCite(Ref ref){
-        //Collection.add(ref);
+        collection.add(ref);
     }
 
     public String lookUpByJournal(String journal){
@@ -26,13 +26,13 @@ public class RefCollection {
         return publisher;
     }
 
-//    public int getNumberOfRefs(String type){
-//        return ;
-//    }
+    public int getNumberOfRefs(String type){
+        return ;
+    }
 
-//    public String exportAll(){
-//        return ;
-//    }
+    public String exportAll(){
+        return ;
+    }
 
     public String importMany(String filePath){
         return filePath;

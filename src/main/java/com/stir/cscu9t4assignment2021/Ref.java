@@ -1,7 +1,7 @@
 package com.stir.cscu9t4assignment2021;
 
 import java.util.Calendar;
-//import java.util.Date;
+import java.util.Date;
 
 public class Ref {
     private String title;
@@ -41,7 +41,8 @@ public class Ref {
     }
 
     public String getPubYear(){
-        return pubYear.toString();
+        String pubYearStr = Integer.toString(pubYear);
+        return pubYearStr;
     }
 
     public String getPublisher(){
