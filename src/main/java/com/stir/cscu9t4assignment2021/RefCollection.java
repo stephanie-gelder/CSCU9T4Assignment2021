@@ -1,50 +1,64 @@
 package com.stir.cscu9t4assignment2021;
 
-import java.util.Collection;
+//import java.util.Collection;
 import java.util.*;
 
 public class RefCollection {
-    private List<Ref>rc;
+    private List<Ref> rc;
+    private List<RefJournal> rcj;
+    private List<RefConference> rcv;
 
     public RefCollection(){
         rc = new ArrayList<Ref>();
+        rcj = new ArrayList<RefJournal>();
+        rcv = new ArrayList<RefConference>();
     }//constructor
 
+    //method to add a citation to the list of references
     public void addCite(Ref ref){
         rc.add(ref);
     }
 
     public String lookUpByJournal(String journal){
-        ListIterator<Ref> iter = rc.listIterator();
-        String result = "No journals found";
+        ListIterator<RefJournal> iter = rcj.listIterator();
+        String result = "";
         while(iter.hasNext()){
-            Ref current = iter.next();
+            RefJournal current = iter.next();
             if(current.getJournal()==journal){
-                result = current.getCitation();
+                result = result + current.getCitation();
             }
+        }
+        if(result.equals("")){
+            result = "There are no citations from the specified journal";
         }
         return result;
     }
 
     public String lookUpByVenue(String venue){
-        ListIterator<Ref> iter = rc.listIterator();
-        String result = "No journals found";
+        ListIterator<RefConference> iter = rcv.listIterator();
+        String result = "";
         while(iter.hasNext()){
-            Ref current = iter.next();
+            RefConference current = iter.next();
             if(current.getVenue()==venue){
-                result = current.getCitation();
+                result = result +current.getCitation();
             }
+        }
+        if(result.equals("")){
+            result = "There are no citations from conferences at the specified venue";
         }
         return result;    }
 
     public String lookUpByPublisher(String publisher){
         ListIterator<Ref> iter = rc.listIterator();
-        String result = "No journals found";
+        String result = "";
         while(iter.hasNext()){
             Ref current = iter.next();
             if(current.getPublisher()==publisher){
                 result = current.getCitation();
             }
+        }
+        if(result.equals("")){
+            result = "There are no citations from the specified publisher";
         }
         return result;    }
 
