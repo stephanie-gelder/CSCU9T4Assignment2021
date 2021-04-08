@@ -9,6 +9,7 @@
             <xs:element type="xs:string" name="doi"/>
             <xs:element type="xs:string" name="publisher"/>
             <xs:element type="xs:int" name="pubYear"/>
+            <xs:element type="xs:date" name="dateAdded"/>
             <xs:element type="xs:string" name="bookTitle"/>
             <xs:element type="xs:string" name="editor"/>
             <xs:element type="xs:string" name="journalTitle"/>
@@ -17,7 +18,15 @@
             <xs:element type="xs:string" name="venue"/>
             <xs:element type="xs:string" name="location"/>
         </xs:sequence>
-        <xs:attribute name="category" use="required"/>
+        <xs:attribute name="category" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="conference"/>
+                    <xs:enumeration value="book chapter"/>
+                    <xs:enumeration value="journal"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
     </xs:complexType>
     <xs:complexType name="bibType">
         <xs:sequence>
