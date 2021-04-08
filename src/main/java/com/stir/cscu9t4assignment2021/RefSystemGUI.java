@@ -316,7 +316,6 @@ public class RefSystemGUI extends JFrame implements ActionListener {
             String j = journalTitle.getText();
             outputArea.setText("Searching for citations from the specified journal...");
             message = RefCollection.lookUpByJournal(j);
-            //System.out.println(message);
         }
         else if(what.equals("publisher")){
             String p = publisher.getText();

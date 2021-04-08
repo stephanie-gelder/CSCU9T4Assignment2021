@@ -4,28 +4,49 @@ import java.util.Collection;
 import java.util.*;
 
 public class RefCollection {
-    private Ref collection;
-
+    private List<Ref>rc;
 
     public RefCollection(){
-
+        rc = new ArrayList<Ref>();
     }//constructor
 
     public void addCite(Ref ref){
-        //collection.add(ref);
+        rc.add(ref);
     }
 
-    public static String lookUpByJournal(String journal){
-        return journal;
+    public String lookUpByJournal(String journal){
+        ListIterator<Ref> iter = rc.listIterator();
+        String result = "No journals found";
+        while(iter.hasNext()){
+            Ref current = iter.next();
+            if(current.getJournal()==journal){
+                result = current.getCitation();
+            }
+        }
+        return result;
     }
 
-    public static String lookUpByVenue(String venue){
-        return venue;
-    }
+    public String lookUpByVenue(String venue){
+        ListIterator<Ref> iter = rc.listIterator();
+        String result = "No journals found";
+        while(iter.hasNext()){
+            Ref current = iter.next();
+            if(current.getVenue()==venue){
+                result = current.getCitation();
+            }
+        }
+        return result;    }
 
-    public static String lookUpByPublisher(String publisher){
-        return publisher;
-    }
+    public String lookUpByPublisher(String publisher){
+        ListIterator<Ref> iter = rc.listIterator();
+        String result = "No journals found";
+        while(iter.hasNext()){
+            Ref current = iter.next();
+            if(current.getPublisher()==publisher){
+                result = current.getCitation();
+            }
+        }
+        return result;    }
 
 //    public int getNumberOfRefs(String type){
 //     //   return ;
