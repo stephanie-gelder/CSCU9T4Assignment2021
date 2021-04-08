@@ -70,6 +70,16 @@ public class RefSystemGUITest {
     }
 
     /**
+     * Test of addCite methods, of class RefSystemGUI
+     *
+     */
+    @Test
+    public void testAddCite(){
+        System.out.println("addCite");
+        RefSystemGUI instance = new RefSystemGUI();
+    }
+
+    /**
      * Test of blankDisplay method, of class RefSystemGUI.
      * It just executes the method to see if it doesn't throw an exception
      */

@@ -7,24 +7,24 @@ public class RefJournal extends Ref{
     private int volume;
     private int issue;
 
-    public RefJournal(String title, String journal, String authors, String doi,
-                      String publisher, int pubYear, int volume, int issue)
+    public RefJournal(String t, String j, String authors, String doi,
+                      String p, int py, int v, int i)
     {
-        super(title, authors, doi, publisher, pubYear);
-        journal = journal;
-        volume = volume;
-        issue = issue;
+        super(t, authors, doi, p, py);
+        journal = j;
+        volume = v;
+        issue = i;
     }//constructor
 
-    public RefJournal(String title, String journal, String authors, String doi,
-                      String publisher, int pubYear, int volume, int issue, int day, int month, int year)
+    public RefJournal(String t, String j, String authors, String doi,
+                      String p, int pY, int v, int i, int d, int m, int y)
     {
-        super(title, authors, doi, publisher, pubYear);
-        journal = journal;
-        volume = volume;
-        issue = issue;
+        super(t, authors, doi, p, pY);
+        journal = j;
+        volume = v;
+        issue = i;
         Calendar inst = Calendar.getInstance();
-        inst.set(year,month-1,day);
+        inst.set(y,m-1,d);
     }//constructor
 
     public String getJournal(){
@@ -41,11 +41,13 @@ public class RefJournal extends Ref{
 
     @Override
     public String getCitation() {
-        String result = getTitle()+ "by " + getAuthors()+ " published in "
-            + getPubYear()+ " by " + getPublisher()+ "DOI number of: "
-            + getDoi()+ " - reference added on " + getDateAdded()
-            + " journal: " + getJournal() + " volume " + getVolume()
-            + "issue " + getIssue();
+        String result = getAuthors() + "(" + getPubYear()
+                + "), " + getTitle()+
+                ", in " + getJournal()+ ", "
+                + getPublisher() + ", vol: "
+                + getVolume()+ ", issue: " + getIssue() +
+                ", doi: " + getDoi()
+                + " - date added: " + getDateAdded();
         return result;
     }
 }

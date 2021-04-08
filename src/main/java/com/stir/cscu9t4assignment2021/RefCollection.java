@@ -1,6 +1,7 @@
 package com.stir.cscu9t4assignment2021;
 
 import java.util.Collection;
+import java.util.*;
 
 public class RefCollection {
     private Ref collection;
@@ -14,15 +15,15 @@ public class RefCollection {
         //collection.add(ref);
     }
 
-    public String lookUpByJournal(String journal){
+    public static String lookUpByJournal(String journal){
         return journal;
     }
 
-    public String lookUpByVenue(String venue){
+    public static String lookUpByVenue(String venue){
         return venue;
     }
 
-    public String lookUpByPublisher(String publisher){
+    public static String lookUpByPublisher(String publisher){
         return publisher;
     }
 

@@ -281,9 +281,9 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         Ref r;
 
         if(what.equals("book")) {
-            String bt = bookTitle.getText();
+            String b = bookTitle.getText();
             String e = editor.getText();
-            r = new RefBookChapter(t, bt, a, d, p, e, py);
+            r = new RefBookChapter(t, b, a, d, p, e, py);
         }
         else if(what.equals("journal")){
             String jt = journalTitle.getText();
@@ -311,20 +311,29 @@ public class RefSystemGUI extends JFrame implements ActionListener {
     public String searchCitations(String what){
         String message = "";
         System.out.println("Searching for citations from " + what);
-        if(what.equals("journal")){
 
+        if(what.equals("journal")){
+            String j = journalTitle.getText();
+            outputArea.setText("Searching for citations from the specified journal...");
+            message = RefCollection.lookUpByJournal(j);
+            //System.out.println(message);
         }
         else if(what.equals("publisher")){
-
+            String p = publisher.getText();
+            outputArea.setText("Searching for citations from the specified publisher...");
+            message = RefCollection.lookUpByPublisher(p);
         }
         else if(what.equals("confVen")){
-
+            String v = venue.getText();
+            outputArea.setText("Searching for citations from the specified conference venue...");
+            message = RefCollection.lookUpByVenue(v);
         }
         else{
             message = "No citations found matching the search criteria";
         }
         return message;
     }
+
     /**
      * Method to 'reset' the GUI display to be blank once a reference has been added to the bibliography
      */

@@ -6,22 +6,22 @@ public class RefBookChapter extends Ref{
     private String bookTitle;
     private String editor;
 
-    public RefBookChapter(String title, String bookTitle, String authors, String doi,
-                          String publisher, String editor, int pubYear)
+    public RefBookChapter(String t, String b, String authors, String doi,
+                          String p, String e, int pY)
     {
-        super(title,  authors, doi, publisher, pubYear);
-        bookTitle = bookTitle;
-        editor = editor;
+        super(t,  authors, doi, p, pY);
+        bookTitle = b;
+        editor = e;
     }//constructor
 
-    public RefBookChapter(String title, String book, String authors, String doi,
-                          String publisher, String editor, int pubYear, int day, int month, int year)
+    public RefBookChapter(String t, String b, String authors, String doi,
+                          String p, String e, int pY, int d, int m, int y)
     {
-        super(title, authors, doi, publisher, pubYear);
-        book = book;
-        editor = editor;
+        super(t, authors, doi, p, pY);
+        bookTitle = b;
+        editor = e;
         Calendar inst = Calendar.getInstance();
-        inst.set(year,month-1,day);
+        inst.set(y,m-1,d);
     }//constructor
 
     public String getBook(){
@@ -34,10 +34,9 @@ public class RefBookChapter extends Ref{
 
     @Override
     public String getCitation() {
-        String result = getTitle()+ "by " + getAuthors()+ " published in "
-                + getPubYear()+ " by " + getPublisher()+ "DOI number of: "
-                + getDoi()+ " - reference added on " + getDateAdded()
-                + " book title: " + getBook() + " edited by: " + getEditor();
+        String result = getAuthors() + "(" + getPubYear() + "), " + getTitle()+
+                ", in " + getBook()+ ", " + getPublisher() + ", ed: " + getEditor()+
+                ", doi: " + getDoi()+ " - date added: " + getDateAdded();
         return result;
     }
 }

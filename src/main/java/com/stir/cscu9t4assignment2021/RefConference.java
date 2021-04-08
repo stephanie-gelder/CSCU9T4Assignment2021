@@ -6,22 +6,22 @@ public class RefConference extends Ref{
     private String venue;
     private String location;
 
-    public RefConference(String title, String venue, String authors, String doi,
-                         String publisher, String location, int pubYear)
+    public RefConference(String t, String v, String authors, String doi,
+                         String p, String l, int pY)
     {
-        super(title, authors, doi, publisher, pubYear);
-        venue = venue;
-        location = location;
+        super(t, authors, doi, p, pY);
+        venue = v;
+        location = l;
     }//constructor
 
-    public RefConference(String title, String venue, String authors, String doi,
-                         String publisher, String location, int pubYear, int day, int month, int year)
+    public RefConference(String t, String v, String authors, String doi,
+                         String p, String l, int pY, int d, int m, int y)
     {
-        super(title, authors, doi, publisher, pubYear);
-        venue = venue;
-        location = location;
+        super(t, authors, doi, p, pY);
+        venue = v;
+        location = l;
         Calendar inst = Calendar.getInstance();
-        inst.set(year,month-1,day);
+        inst.set(y,m-1,d);
     }//constructor
 
 
@@ -35,10 +35,13 @@ public class RefConference extends Ref{
 
     @Override
     public String getCitation() {
-        String result = getTitle()+ "by " + getAuthors()+ " published in "
-                + getPubYear()+ " by " + getPublisher()+ "DOI number of: "
-                + getDoi()+ " - reference added on " + getDateAdded()+
-                " conference venue " + getVenue() + " at location " + getLocation();
+//        String result = getTitle()+ "by " + getAuthors()+ " published in "
+//                + getPubYear()+ " by " + getPublisher()+ "DOI number of: "
+//                + getDoi()+ " - reference added on " + getDateAdded()+
+//                " conference venue " + getVenue() + " at location " + getLocation();
+        String result = getAuthors() + "(" + getPubYear() + "), " + getTitle()+
+                ", from " + getVenue()+ ", " + getPublisher() + ", loc: " + getLocation()+
+                ", doi: " + getDoi()+ " - date added: " + getDateAdded();
         return result;
     }
 }

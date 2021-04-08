@@ -11,25 +11,26 @@ public class Ref {
     private int pubYear;
     private Calendar dateAdded;
 
-    public Ref(String title, String authors, String doi, String publisher, int pubYear){
-        title = title;
+    public Ref(String t, String authors, String d, String p, int pY){
+        title = t;
         authors = authors;
-        pubYear = pubYear;
-        publisher = publisher;
-        doi = doi;
-    }
-    public Ref(String title, String authors, String doi, String publisher,
-               int pubYear, int day, int month, int year)
-    {
-        title = title;
-        authors = authors;
-        pubYear = pubYear;
-        publisher = publisher;
-        doi = doi;
-        Calendar inst = Calendar.getInstance();
-        inst.set(year,month-1,day);
-        dateAdded = inst;
+        pubYear = pY;
+        publisher = p;
+        doi = d;
     }//constructor
+
+//    public Ref(String t, String authors, String doi, String p,
+//               int pY, int d, int m, int y)
+//    {
+//        title = t;
+//        authors = authors;
+//        pubYear = pY;
+//        publisher = p;
+//        DOI = doi;
+//        Calendar inst = Calendar.getInstance();
+//        inst.set(y,m-1,d);
+//        dateAdded = inst;
+//    }//constructor
 
     public String getTitle(){
         return title;
