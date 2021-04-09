@@ -35,13 +35,9 @@ public class RefConference extends Ref{
 
     @Override
     public String getCitation() {
-//        String result = getTitle()+ "by " + getAuthors()+ " published in "
-//                + getPubYear()+ " by " + getPublisher()+ "DOI number of: "
-//                + getDoi()+ " - reference added on " + getDateAdded()+
-//                " conference venue " + getVenue() + " at location " + getLocation();
         String result = getAuthors() + "(" + getPubYear() + "), " + getTitle()+
                 ", from " + getVenue()+ ", " + getPublisher() + ", loc: " + getLocation()+
                 ", doi: " + getDoi()+ " - date added: " + getDateAdded();
         return result;
-    }
+    }//overridden getCitation method from superclass to include new attributes in the subclass
 }

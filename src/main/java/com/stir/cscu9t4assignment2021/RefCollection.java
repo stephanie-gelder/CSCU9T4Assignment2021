@@ -19,6 +19,11 @@ public class RefCollection {
         rc.add(ref);
     }
 
+    /**
+     * Method to search for references from a specific journal
+     * @param journal
+     * @return
+     */
     public String lookUpByJournal(String journal){
         ListIterator<RefJournal> iter = rcj.listIterator();
         String result = "";
@@ -27,6 +32,7 @@ public class RefCollection {
             if(current.getJournal()==journal){
                 result = result + current.getCitation();
             }
+            break;
         }
         if(result.equals("")){
             result = "There are no citations from the specified journal";
@@ -34,6 +40,11 @@ public class RefCollection {
         return result;
     }
 
+    /**
+     * Method to search for references from a specific conference venue
+     * @param venue
+     * @return
+     */
     public String lookUpByVenue(String venue){
         ListIterator<RefConference> iter = rcv.listIterator();
         String result = "";
@@ -46,8 +57,14 @@ public class RefCollection {
         if(result.equals("")){
             result = "There are no citations from conferences at the specified venue";
         }
-        return result;    }
+        return result;
+    }
 
+    /**
+     * Method to search for references from a specific publisher
+     * @param publisher
+     * @return
+     */
     public String lookUpByPublisher(String publisher){
         ListIterator<Ref> iter = rc.listIterator();
         String result = "";

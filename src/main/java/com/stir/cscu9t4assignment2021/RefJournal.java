@@ -49,5 +49,5 @@ public class RefJournal extends Ref{
                 ", doi: " + getDoi()
                 + " - date added: " + getDateAdded();
         return result;
-    }
+    }//overridden getCitation method from superclass to include new attributes in the subclass
 }

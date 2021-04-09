@@ -38,5 +38,5 @@ public class RefBookChapter extends Ref{
                 ", in " + getBook()+ ", " + getPublisher() + ", ed: " + getEditor()+
                 ", doi: " + getDoi()+ " - date added: " + getDateAdded();
         return result;
-    }
+    }//overridden getCitation method from superclass to include new attributes in the subclass
 }

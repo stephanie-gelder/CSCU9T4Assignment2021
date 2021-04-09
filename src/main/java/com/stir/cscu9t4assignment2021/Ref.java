@@ -37,12 +37,12 @@ public class Ref {
     }
 
     public String getAuthors(){
-        String result = String.join(", ", authors);
+        String result = String.join(", ", authors);//joins array elements into a single string
         return result;
     }
 
     public String getPubYear(){
-        String pubYearStr = Integer.toString(pubYear);
+        String pubYearStr = Integer.toString(pubYear);//converts the pubYear as an integer to a string
         return pubYearStr;
     }
 
@@ -55,7 +55,7 @@ public class Ref {
     }
 
     public String getDateAdded(){
-        return dateAdded.toString();
+        return dateAdded.toString();//returns the date as a string
     }
 
     public String getCitation(){
@@ -63,6 +63,6 @@ public class Ref {
                 + getPubYear()+ " by " + getPublisher()+ "DOI number of: "
                 + getDoi()+ " - reference added on " + getDateAdded();
         return result;
-    }
+    }//getCitation method generic for all non-specified reference entries
 
 }

@@ -166,7 +166,7 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         add(pSearchField);
         pSearchField.setEditable(true);
         add(pSearch);
-        pSearch.addActionListener(true);
+        pSearch.addActionListener(this);
 
         add(labCVenSearch);
         add(cVenSearchField);
@@ -216,6 +216,8 @@ public class RefSystemGUI extends JFrame implements ActionListener {
                 bookTitle.setEnabled(true);
                 labEditor.setEnabled(true);
                 editor.setEnabled(true);
+                labDateAdded.setEnabled(false);
+                dateAdded.setEnabled(false);
             }
         }
         if (event.getSource() == rbJournal){
@@ -234,6 +236,8 @@ public class RefSystemGUI extends JFrame implements ActionListener {
                 volume.setEnabled(true);
                 labJournalT.setEnabled(true);
                 journalTitle.setEnabled(true);
+                labDateAdded.setEnabled(false);
+                dateAdded.setEnabled(false);
             }
         }
         if(event.getSource() == rbConference){
@@ -252,6 +256,8 @@ public class RefSystemGUI extends JFrame implements ActionListener {
                 venue.setEnabled(true);
                 labLocation.setEnabled(true);
                 location.setEnabled(true);
+                labDateAdded.setEnabled(false);
+                dateAdded.setEnabled(false);
             }
         }
 
@@ -287,22 +293,26 @@ public class RefSystemGUI extends JFrame implements ActionListener {
             String b = bookTitle.getText();
             String e = editor.getText();
             r = new RefBookChapter(t, b, a, d, p, e, py);
+            bibliography.addCite(r);
         }
         else if(what.equals("journal")){
             String jt = journalTitle.getText();
             int i = Integer.parseInt(issue.getText());
             int v = Integer.parseInt(volume.getText());
             r = new RefJournal(t, jt, a, d, p, py, v, i);
+            bibliography.addCite(r);
         }
         else if(what.equals("conference")){
             String v = venue.getText();
             String l = location.getText();
             r = new RefConference(t, v, a, d, p, l, py);
+            bibliography.addCite(r);
         }
         else {
             r = new Ref(t, a, d, p, py);
+            bibliography.addCite(r);
         }
-        bibliography.addCite(r);
+        //bibliography.addCite(r);
         return message;
     }
 
@@ -350,6 +360,7 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         location.setText("");
         authors.setText("");
         doi.setText("");
+        dateAdded.setText("");
         publisher.setText("");
         pubYear.setText("");
         jSearchField.setText("");
