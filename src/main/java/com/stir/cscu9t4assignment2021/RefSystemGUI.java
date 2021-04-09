@@ -66,6 +66,9 @@ public class RefSystemGUI extends JFrame implements ActionListener {
     //creating the add reference button
     private JButton addRef = new JButton("Add Reference");
 
+    //creating the button for the user to import references from a csv file
+    private JButton importRef = new JButton("Import References");
+
     //creating the buttons, text fields and labels for search fields
     //creating elements to search journal citations
     private JLabel labJSearch = new JLabel("Journal Title to search for:");
@@ -153,26 +156,34 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         add(location);
         location.setEditable(true);
 
+        //adding the add reference button to GUI
         add(addRef);
         addRef.addActionListener(this);
 
+        //adding the journal search label, text field and button to GUI
         add(labJSearch);
         add(jSearchField);
         jSearchField.setEditable(true);
         add(jSearch);
         jSearch.addActionListener(this);
 
+        //adding the publisher search label, text field and button to GUI
         add(labPSearch);
         add(pSearchField);
         pSearchField.setEditable(true);
         add(pSearch);
         pSearch.addActionListener(this);
 
+        //adding the venue search label, text field and button to GUI
         add(labCVenSearch);
         add(cVenSearchField);
         cVenSearchField.setEditable(true);
         add(cVenSearch);
         cVenSearch.addActionListener(this);
+
+        //adding the import references button to GUI
+        add(importRef);
+        importRef.addActionListener(this);
 
         add(outputArea);
         outputArea.setEditable(false);
@@ -270,6 +281,11 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         if(event.getSource()==cVenSearch){
             message = searchCitations("confVen");
         }
+
+        if(event.getSource()==importRef){
+            message = importReferences();
+        }
+
         outputArea.setText(message);
         blankDisplay();
     }//actionPerformed
@@ -343,6 +359,15 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         else{
             message = "No citations found matching the search criteria";
         }
+        return message;
+    }
+
+    /**
+     * Method to import references from a csv file
+     */
+    public String importReferences(){
+        String message = "";
+        System.out.println("Importing references from csv file");
         return message;
     }
 

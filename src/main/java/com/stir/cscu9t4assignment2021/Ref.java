@@ -19,18 +19,18 @@ public class Ref {
         doi = d;
     }//constructor
 
-//    public Ref(String t, String authors, String doi, String p,
-//               int pY, int d, int m, int y)
-//    {
-//        title = t;
-//        authors = authors;
-//        pubYear = pY;
-//        publisher = p;
-//        DOI = doi;
-//        Calendar inst = Calendar.getInstance();
-//        inst.set(y,m-1,d);
-//        dateAdded = inst;
-//    }//constructor
+    public Ref(String t, String authors, String doi, String p,
+               int pY, int d, int m, int y)
+    {
+        title = t;
+        authors = authors;
+        pubYear = pY;
+        publisher = p;
+        doi = doi;
+        Calendar inst = Calendar.getInstance();
+        inst.set(y,m-1,d);
+        dateAdded = inst;
+    }//constructor
 
     public String getTitle(){
         return title;
