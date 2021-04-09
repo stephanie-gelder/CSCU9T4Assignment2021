@@ -160,16 +160,19 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         add(jSearchField);
         jSearchField.setEditable(true);
         add(jSearch);
+        jSearch.addActionListener(this);
 
         add(labPSearch);
         add(pSearchField);
         pSearchField.setEditable(true);
         add(pSearch);
+        pSearch.addActionListener(true);
 
         add(labCVenSearch);
         add(cVenSearchField);
         cVenSearchField.setEditable(true);
         add(cVenSearch);
+        cVenSearch.addActionListener(this);
 
         add(outputArea);
         outputArea.setEditable(false);
@@ -187,32 +190,32 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         String message = "";
         if(event.getSource()==addRef){
             if (rbBook.isSelected()){
-               message = addCite("book");
+                message = addCite("book");
             }
             if (rbJournal.isSelected()){
                 message = addCite("journal");
             }
             if (rbConference.isSelected()) {
-               message = addCite("conference");
+                message = addCite("conference");
             }
         }
 
         if (event.getSource() == rbBook){
             if(rbBook.isSelected()){
-               labIssue.setEnabled(false);
-               issue.setEnabled(false);
-               labVol.setEnabled(false);
-               volume.setEnabled(false);
-               labJournalT.setEnabled(false);
-               journalTitle.setEnabled(false);
-               labVenue.setEnabled(false);
-               venue.setEnabled(false);
-               labLocation.setEnabled(false);
-               location.setEnabled(false);
-               labBookT.setEnabled(true);
-               bookTitle.setEnabled(true);
-               labEditor.setEnabled(true);
-               editor.setEnabled(true);
+                labIssue.setEnabled(false);
+                issue.setEnabled(false);
+                labVol.setEnabled(false);
+                volume.setEnabled(false);
+                labJournalT.setEnabled(false);
+                journalTitle.setEnabled(false);
+                labVenue.setEnabled(false);
+                venue.setEnabled(false);
+                labLocation.setEnabled(false);
+                location.setEnabled(false);
+                labBookT.setEnabled(true);
+                bookTitle.setEnabled(true);
+                labEditor.setEnabled(true);
+                editor.setEnabled(true);
             }
         }
         if (event.getSource() == rbJournal){
@@ -349,5 +352,8 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         doi.setText("");
         publisher.setText("");
         pubYear.setText("");
+        jSearchField.setText("");
+        pSearchField.setText("");
+        cVenSearchField.setText("");
     } //blankDisplay
 }
