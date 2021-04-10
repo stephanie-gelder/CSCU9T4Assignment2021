@@ -66,19 +66,21 @@ public class RefSystemGUI extends JFrame implements ActionListener {
     //creating the add reference button
     private JButton addRef = new JButton("Add Reference");
 
-    //creating the button for the user to import references from a csv file
+    //creating the elements for the user to import references from a csv file
+    private JLabel labImpRef = new JLabel("Enter name of csv file to import:");
+    private JTextField impRefField = new JTextField(30);
     private JButton importRef = new JButton("Import References");
 
     //creating the buttons, text fields and labels for search fields
-    //creating elements to search journal citations
+    //creating elements to search JOURNAL citations
     private JLabel labJSearch = new JLabel("Journal Title to search for:");
     private JTextField jSearchField = new JTextField(20);
     private JButton jSearch = new JButton("Search Journals");
-    //creating the button to search publisher citations
+    //creating the button to search PUBLISHER citations
     private JLabel labPSearch = new JLabel("Publisher to search for:");
     private JTextField pSearchField = new JTextField(20);
     private JButton pSearch = new JButton("Search for Publisher");
-    //creating button to search citations for conference venue
+    //creating button to search CONFERENCE VENUE citations
     private JLabel labCVenSearch = new JLabel("Conference Venue to search for:");
     private JTextField cVenSearchField = new JTextField(20);
     private JButton cVenSearch = new JButton("Search for Conference Venue");
@@ -96,7 +98,8 @@ public class RefSystemGUI extends JFrame implements ActionListener {
      */
     public RefSystemGUI() {
         super("Bibliography");
-        setLayout(new FlowLayout());
+        //setLayout(new FlowLayout());
+        setLayout(new GridBagLayout());
 
         add(labRefInfo);
         add(labRefType);
@@ -181,13 +184,17 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         add(cVenSearch);
         cVenSearch.addActionListener(this);
 
-        //adding the import references button to GUI
+        //adding the import references elements to GUI
+            ////NOT SHOWING UP IN GUI WINDOW
+        add(labImpRef);
+        add(impRefField);
+        impRefField.setEditable(true);
         add(importRef);
         importRef.addActionListener(this);
 
         add(outputArea);
         outputArea.setEditable(false);
-        setSize(780, 600);
+        setSize(850, 700);
         setVisible(true);
         blankDisplay();
 
@@ -283,7 +290,7 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         }
 
         if(event.getSource()==importRef){
-            message = importReferences();
+            message = importReferences("fileName");
         }
 
         outputArea.setText(message);
@@ -365,9 +372,12 @@ public class RefSystemGUI extends JFrame implements ActionListener {
     /**
      * Method to import references from a csv file
      */
-    public String importReferences(){
+    public String importReferences(String fileName){
         String message = "";
-        System.out.println("Importing references from csv file");
+        System.out.println("Importing references from " + fileName);
+        String fN = impRefField.getText();
+        outputArea.setText("Importing references from csv file");
+        message = RefCollection.importMany(fN);
         return message;
     }
 

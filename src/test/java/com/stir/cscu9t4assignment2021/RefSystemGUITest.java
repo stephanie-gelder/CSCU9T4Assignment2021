@@ -80,6 +80,26 @@ public class RefSystemGUITest {
     }
 
     /**
+     * Test of searchCitations method, of class RefSystemGUI
+     *
+     */
+    @Test
+    public void testSearchCitations(){
+        System.out.println("searchCitations");
+        RefSystemGUI instance = new RefSystemGUI();
+    }
+
+    /**
+     * Test of importReferences method, of class RefSystemGUI
+     *
+     */
+    @Test
+    public void testImportReferences(){
+        System.out.println("importReferences");
+        RefSystemGUI instance = new RefSystemGUI();
+    }
+
+    /**
      * Test of blankDisplay method, of class RefSystemGUI.
      * It just executes the method to see if it doesn't throw an exception
      */
@@ -98,7 +118,7 @@ public class RefSystemGUITest {
         System.out.println("Check if you have added the buttons");
         RefSystemGUI instance = new RefSystemGUI();
         Class<?> instanceClass = instance.getClass();
-        String[] expectedFields = {"addRef","jSearch", "pSearch", "cVenSearch"};
+        String[] expectedFields = {"addRef","jSearch", "pSearch", "cVenSearch", "importRef"};
         Field fields[] = instanceClass.getDeclaredFields();
         int found = 0;
         for (Field field : fields) {

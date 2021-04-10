@@ -1,6 +1,10 @@
 package com.stir.cscu9t4assignment2021;
 
 //import java.util.Collection;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
 public class RefCollection {
@@ -92,7 +96,20 @@ public class RefCollection {
 //       // return ;
 //    }
 
-    public String importMany(String filePath){
+    public static String importMany(String filePath){
+        String row = "";
+        try{
+            BufferedReader csvReader = new BufferedReader(new FileReader("all_data_corrected.csv"));
+            while ((row = csvReader.readLine()) != null){
+                String[] data = row.split(",");
+                System.out.println("Title: "+data[0] + ", authors: "+data[1]
+                        + ", year published: "+data[2] + ", publisher: "+data[3]
+                        + ", DOI number: " +data[4] + ", date added: "+data[5]);
+            }
+            csvReader.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
         return filePath;
     }
 }
