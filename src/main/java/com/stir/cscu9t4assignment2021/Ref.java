@@ -34,29 +34,29 @@ public class Ref {
 
     public String getTitle(){
         return title;
-    }
+    } //getter method to return the title of the reference
 
     public String getAuthors(){
         String result = String.join(", ", authors);//joins array elements into a single string
         return result;
-    }
+    } //getter method to return the authors of a reference
 
     public String getPubYear(){
         String pubYearStr = Integer.toString(pubYear);//converts the pubYear as an integer to a string
         return pubYearStr;
-    }
+    } //getter method to return the publishing year of a reference
 
     public String getPublisher(){
         return publisher;
-    }
+    } //getter method to return the publisher of a reference
 
     public String getDoi(){
         return doi;
-    }
+    } //getter method to return a references DOI number
 
     public String getDateAdded(){
         return dateAdded.toString();//returns the date as a string
-    }
+    } //getter method to return the date a reference was added to the bibliography
 
     public String getCitation(){
         String result = getTitle()+ "by " + getAuthors()+ " published in "

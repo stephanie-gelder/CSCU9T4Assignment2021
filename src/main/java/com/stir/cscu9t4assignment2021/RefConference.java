@@ -27,11 +27,11 @@ public class RefConference extends Ref{
 
     public String getVenue(){
         return venue;
-    }
+    } //getter method to return the venue of a conference reference
 
     public String getLocation(){
         return location;
-    }
+    } //getter method to return the location of a conference
 
     @Override
     public String getCitation() {

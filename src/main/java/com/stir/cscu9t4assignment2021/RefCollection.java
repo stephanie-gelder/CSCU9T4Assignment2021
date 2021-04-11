@@ -88,27 +88,92 @@ public class RefCollection {
         }
         return result;    }
 
-//    public int getNumberOfRefs(String type){
-//     //   return ;
-//    }
-//
-    public String exportAll(){
-        String results = "";
+    /**
+     * Method to get the total number of each type of reference
+     * @param type
+     */
+    public int getNumberOfRefs(String type){
+        int results = 0;
         return results;
     }
 
+    /**
+     * Method to export all stored citations to a text file
+     * @return
+     */
+    public String exportAll(){
+        String results = "";
+        try {
+            File outputFile = new File("all_citations.txt");
+            if(outputFile.createNewFile()){
+                System.out.println("File " + outputFile.getName() + " created in: " + outputFile.getAbsolutePath());
+            } else
+                System.out.println("output file already exists");;
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return results;
+    }
+
+    /**
+     * Method to export all the journal citations, found by the users search, to a text file
+     * @return
+     */
     public String exportJSearch(){
         String results = "";
+        try {
+            File outputFile = new File("journal_citations.txt");
+            if(outputFile.createNewFile()){
+                System.out.println("File " + outputFile.getName() + " created in: " + outputFile.getAbsolutePath());
+            } else
+                System.out.println("output file already exists");;
+        }catch (IOException e){
+            e.printStackTrace();
+        }
         return results;
     }
+
+    /**
+     * Method to export all citations found by the users search for a publisher to a text file
+     * @return
+     */
     public String exportPSearch(){
         String results = "";
+        try {
+            File outputFile = new File("publisher_citations.txt");
+            if(outputFile.createNewFile()){
+                System.out.println("File " + outputFile.getName() + " created in: " + outputFile.getAbsolutePath());
+            } else
+                System.out.println("output file already exists");;
+        }catch (IOException e){
+            e.printStackTrace();
+        }
         return results;
     }
+
+    /**
+     * Method to export all citations found by the users search for a conference venue to a text file
+     * @return
+     */
     public String exportCVenSearch(){
         String results = "";
+        try {
+            File outputFile = new File("conf_ven_citations.txt");
+            if(outputFile.createNewFile()){
+                System.out.println("File " + outputFile.getName() + " created in: " + outputFile.getAbsolutePath());
+            } else
+                System.out.println("output file already exists");;
+        }catch (IOException e){
+            e.printStackTrace();
+        }
         return results;
     }
+
+    /**
+     * Method to import multiple citations, as strings, from a csv file
+     * @param filePath
+     * @return
+     */
     public static String importMany(String filePath){
         String row = "";
         try{

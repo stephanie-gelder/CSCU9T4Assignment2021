@@ -29,15 +29,15 @@ public class RefJournal extends Ref{
 
     public String getJournal(){
         return journal;
-    }
+    } //getter method to return the journal title
 
     public int getVolume(){
         return volume;
-    }
+    } //getter method to return the journal volume
 
     public int getIssue(){
         return issue;
-    }
+    } //getter method to return the journal's issue number
 
     @Override
     public String getCitation() {

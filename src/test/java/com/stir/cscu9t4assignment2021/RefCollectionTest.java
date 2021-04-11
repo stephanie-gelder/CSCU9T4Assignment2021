@@ -46,8 +46,8 @@ public class RefCollectionTest {
         Ref ref = null;
         RefCollection instance = new RefCollection();
         instance.addCite(ref);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -61,23 +61,23 @@ public class RefCollectionTest {
         String expResult = "";
         String result = instance.lookUpByJournal(journal);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
     }
 
     /**
      * Test of loopUpByVenue method, of class RefCollection.
      */
     @Test
-    public void testLoopUpByVenue() {
-        System.out.println("loopUpByVenue");
+    public void testLookUpByVenue() {
+        System.out.println("lookUpByVenue");
         String venue = "";
         RefCollection instance = new RefCollection();
         String expResult = "";
         String result = instance.lookUpByVenue(venue);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -91,8 +91,8 @@ public class RefCollectionTest {
         String expResult = "";
         String result = instance.lookUpByPublisher(publisher);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -104,8 +104,8 @@ public class RefCollectionTest {
         String type = "";
         RefCollection instance = new RefCollection();
         int expResult = 0;
-//        int result = instance.getNumberOfRefs(type);
-//        assertEquals(expResult, result);
+        int result = instance.getNumberOfRefs(type);
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -118,10 +118,49 @@ public class RefCollectionTest {
         System.out.println("exportAll");
         RefCollection instance = new RefCollection();
         String expResult = "";
-//        String result = instance.exportAll();
-//        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String result = instance.exportAll();
+        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+    }
+    /**
+     * Test of exportJSearch method, of class RefCollection.
+     */
+    @Test
+    public void testExportJSearch() {
+        System.out.println("exportJSearch");
+        RefCollection instance = new RefCollection();
+        String expResult = "";
+        String result = instance.exportJSearch();
+        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+    }
+    /**
+     * Test of exportPSearch method, of class RefCollection.
+     */
+    @Test
+    public void testExportPSearch() {
+        System.out.println("exportPSearch");
+        RefCollection instance = new RefCollection();
+        String expResult = "";
+        String result = instance.exportPSearch();
+        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+    }
+    /**
+     * Test of exportCVenSearch method, of class RefCollection.
+     */
+    @Test
+    public void testExportCVenSearch() {
+        System.out.println("exportCVenSearch");
+        RefCollection instance = new RefCollection();
+        String expResult = "";
+        String result = instance.exportCVenSearch();
+        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -135,8 +174,8 @@ public class RefCollectionTest {
         String expResult = "";
         String result = instance.importMany(filePath);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
     }
     
 }

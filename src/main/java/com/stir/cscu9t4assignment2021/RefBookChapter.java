@@ -26,11 +26,11 @@ public class RefBookChapter extends Ref{
 
     public String getBook(){
         return bookTitle;
-    }
+    } //getter method to return the book title
 
     public String getEditor(){
         return editor;
-    }
+    } //getter method to return the editor of the bok chapter reference
 
     @Override
     public String getCitation() {

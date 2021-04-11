@@ -199,6 +199,7 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         importRef.addActionListener(this);
 
         //Adding the export buttons to the GUI
+            ////NOT SHOWING UP IN GUI WINDOW
         add(expJournal);
         expJournal.addActionListener(this);
         add(expPublisher);
@@ -410,7 +411,7 @@ public class RefSystemGUI extends JFrame implements ActionListener {
     }
 
     /**
-     * Method to export the citations based on the input from the user
+     * Method to export the citations depending on which button the user presses
      * @param what
      * @return
      */
