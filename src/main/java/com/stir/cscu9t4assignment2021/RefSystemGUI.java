@@ -85,6 +85,12 @@ public class RefSystemGUI extends JFrame implements ActionListener {
     private JTextField cVenSearchField = new JTextField(20);
     private JButton cVenSearch = new JButton("Search for Conference Venue");
 
+    //creating the buttons to enable the user to export each set of search results or all citations to a .txt file
+    private JButton expJournal = new JButton("Export Journal Search Results");
+    private JButton expPublisher = new JButton("Export Publisher Search Results");
+    private JButton expVenue = new JButton("Export Venue Search Results");
+    private JButton expAll = new JButton("Export All Citations");
+
     private RefCollection bibliography = new RefCollection();
 
     private JTextArea outputArea = new JTextArea(20, 50);
@@ -98,8 +104,8 @@ public class RefSystemGUI extends JFrame implements ActionListener {
      */
     public RefSystemGUI() {
         super("Bibliography");
-        //setLayout(new FlowLayout());
-        setLayout(new GridBagLayout());
+        setLayout(new FlowLayout());
+        //setLayout(new GridBagLayout());
 
         add(labRefInfo);
         add(labRefType);
@@ -191,6 +197,16 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         impRefField.setEditable(true);
         add(importRef);
         importRef.addActionListener(this);
+
+        //Adding the export buttons to the GUI
+        add(expJournal);
+        expJournal.addActionListener(this);
+        add(expPublisher);
+        expPublisher.addActionListener(this);
+        add(expVenue);
+        expVenue.addActionListener(this);
+        add(expAll);
+        expAll.addActionListener(this);
 
         add(outputArea);
         outputArea.setEditable(false);
@@ -293,6 +309,18 @@ public class RefSystemGUI extends JFrame implements ActionListener {
             message = importReferences("fileName");
         }
 
+        if(event.getSource()==expJournal){
+            message = exportCitations("journal");
+        }
+        if(event.getSource()==expPublisher){
+            message = exportCitations("publisher");
+        }
+        if(event.getSource()==expVenue){
+            message = exportCitations("confVen");
+        }
+        if(event.getSource()==expAll){
+            message = exportCitations("all");
+        }
         outputArea.setText(message);
         blankDisplay();
     }//actionPerformed
@@ -345,23 +373,23 @@ public class RefSystemGUI extends JFrame implements ActionListener {
      * @return
      */
     public String searchCitations(String what){
-        String message = "";
+        String message = "Searching Citations\n";
         System.out.println("Searching for citations from " + what);
 
         if(what.equals("journal")){
             String j = journalTitle.getText();
             outputArea.setText("Searching for citations from the specified journal...");
-            message = RefCollection.lookUpByJournal(j);
+            bibliography.lookUpByJournal(j);
         }
         else if(what.equals("publisher")){
             String p = publisher.getText();
             outputArea.setText("Searching for citations from the specified publisher...");
-            message = RefCollection.lookUpByPublisher(p);
+            bibliography.lookUpByPublisher(p);
         }
         else if(what.equals("confVen")){
             String v = venue.getText();
             outputArea.setText("Searching for citations from the specified conference venue...");
-            message = RefCollection.lookUpByVenue(v);
+            bibliography.lookUpByVenue(v);
         }
         else{
             message = "No citations found matching the search criteria";
@@ -373,14 +401,44 @@ public class RefSystemGUI extends JFrame implements ActionListener {
      * Method to import references from a csv file
      */
     public String importReferences(String fileName){
-        String message = "";
+        String message = "Importing References\n";
         System.out.println("Importing references from " + fileName);
         String fN = impRefField.getText();
         outputArea.setText("Importing references from csv file");
-        message = RefCollection.importMany(fN);
+        bibliography.importMany(fN);
         return message;
     }
 
+    /**
+     * Method to export the citations based on the input from the user
+     * @param what
+     * @return
+     */
+    public String exportCitations(String what){
+        String message = "Exporting Citations to a .txt file\n";
+        System.out.println("Exporting citations from " + what + "search");
+
+        if(what.equals("journal")){
+            outputArea.setText("Exporting citations from the Journal search");
+            bibliography.exportJSearch();
+        }
+        else if(what.equals("publisher")){
+            outputArea.setText("Exporting citations from the publisher search");
+            bibliography.exportPSearch();
+        }
+        else if(what.equals("confVen")){
+            outputArea.setText("Exporting citations from the conference venue search");
+            bibliography.exportCVenSearch();
+        }
+        else if(what.equals("all")){
+            outputArea.setText("Exporting all citations");
+            bibliography.exportAll();
+        }
+        else{
+            message = "No citations found to be exported";
+        }
+        return message;
+    }
     /**
      * Method to 'reset' the GUI display to be blank once a reference has been added to the bibliography
      */

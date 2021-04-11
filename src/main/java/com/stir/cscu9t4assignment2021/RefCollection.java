@@ -92,10 +92,23 @@ public class RefCollection {
 //     //   return ;
 //    }
 //
-//    public String exportAll(){
-//       // return ;
-//    }
+    public String exportAll(){
+        String results = "";
+        return results;
+    }
 
+    public String exportJSearch(){
+        String results = "";
+        return results;
+    }
+    public String exportPSearch(){
+        String results = "";
+        return results;
+    }
+    public String exportCVenSearch(){
+        String results = "";
+        return results;
+    }
     public static String importMany(String filePath){
         String row = "";
         try{
