@@ -1,10 +1,7 @@
 package com.stir.cscu9t4assignment2021;
 
 //import java.util.Collection;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 public class RefCollection {
@@ -107,6 +104,10 @@ public class RefCollection {
             File outputFile = new File("all_citations.txt");
             if(outputFile.createNewFile()){
                 System.out.println("File " + outputFile.getName() + " created in: " + outputFile.getAbsolutePath());
+                FileWriter fw = new FileWriter(outputFile, true); //true will append data to text file
+                fw.write(String.valueOf(rc)); //appends the contents of the rc ArrayList to the .txt file
+                fw.write("\n"); //new line
+                fw.close();
             } else
                 System.out.println("output file already exists");;
         }catch (IOException e){
@@ -125,6 +126,11 @@ public class RefCollection {
             File outputFile = new File("journal_citations.txt");
             if(outputFile.createNewFile()){
                 System.out.println("File " + outputFile.getName() + " created in: " + outputFile.getAbsolutePath());
+                FileWriter fw = new FileWriter(outputFile, true); //true will append data to text file
+                fw.write(String.valueOf(rcj)); //appends the contents of the rcj ArrayList to the .txt file
+                //fw.write(REfCollection.lookUpByJournal());
+                fw.write("\n"); //new line
+                fw.close();
             } else
                 System.out.println("output file already exists");;
         }catch (IOException e){
@@ -143,6 +149,13 @@ public class RefCollection {
             File outputFile = new File("publisher_citations.txt");
             if(outputFile.createNewFile()){
                 System.out.println("File " + outputFile.getName() + " created in: " + outputFile.getAbsolutePath());
+                FileWriter fw = new FileWriter(outputFile, true); //true will append data to text file
+                fw.write(String.valueOf(rc)); //appends the contents of the rcj ArrayList to the .txt file
+                                        //Not correct as will append the full reference list rather than just the
+                                        //references that match the publisher
+                //fw.write(RefCollection.lookUpByPublisher());
+                fw.write("\n"); //new line
+                fw.close();
             } else
                 System.out.println("output file already exists");;
         }catch (IOException e){
@@ -161,6 +174,11 @@ public class RefCollection {
             File outputFile = new File("conf_ven_citations.txt");
             if(outputFile.createNewFile()){
                 System.out.println("File " + outputFile.getName() + " created in: " + outputFile.getAbsolutePath());
+                FileWriter fw = new FileWriter(outputFile, true); //true will append data to text file
+                fw.write(String.valueOf(rcv)); //appends the contents of the rcv ArrayList to the .txt file
+                //fw.write(RefCollection.lookUpByVenue());
+                fw.write("\n"); //new line
+                fw.close();
             } else
                 System.out.println("output file already exists");;
         }catch (IOException e){
