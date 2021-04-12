@@ -97,6 +97,7 @@ public class RefSystemGUI extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
         RefSystemGUI applic = new RefSystemGUI();
+        applic.revalidate();
     } //main
 
     /**
@@ -104,8 +105,8 @@ public class RefSystemGUI extends JFrame implements ActionListener {
      */
     public RefSystemGUI() {
         super("Bibliography");
-        setLayout(new FlowLayout());
-        //setLayout(new GridBagLayout());
+        //setLayout(new FlowLayout());
+        setLayout(new GridBagLayout());
 
         add(labRefInfo);
         add(labRefType);
@@ -211,10 +212,10 @@ public class RefSystemGUI extends JFrame implements ActionListener {
 
         add(outputArea);
         outputArea.setEditable(false);
-        setSize(850, 700);
+        //setSize(850, 700);
+        pack();
         setVisible(true);
         blankDisplay();
-
     } //constructor
 
     /**
