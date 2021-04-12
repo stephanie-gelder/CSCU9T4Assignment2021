@@ -8,11 +8,13 @@ public class RefCollection {
     private static List<Ref> rc;
     private static List<RefJournal> rcj;
     private static List<RefConference> rcv;
+    private static List<RefBookChapter> rcb;
 
     public RefCollection(){
         rc = new ArrayList<>();
         rcj = new ArrayList<>();
         rcv = new ArrayList<>();
+        rcb = new ArrayList<>();
     }//constructor
 
     //method to add a citation to the list of references
@@ -91,6 +93,22 @@ public class RefCollection {
      */
     public int getNumberOfRefs(String type){
         int results = 0;
+        if(type == "journal"){ //if the type of reference is a journal then...
+            results = rcj.toArray().length; //assigns the length of the ArrayList to the variable results as an integer
+                //nothing is added to the rcj ArrayList so the method will return 0
+        }
+        else if(type == "book"){ //if the type of reference is a book then...
+            results = rcb.toArray().length; //assigns the length of the ArrayList to the variable results as an integer
+                //nothing is added to the rcb ArrayList so the method will return 0
+        }
+        else if(type == "conference"){ //if the type of reference is a conference then...
+            results = rcv.toArray().length; //assigns the length of the ArrayList to the variable results as an integer
+                //nothing is added to the rcv ArrayList so the method will return 0
+        }
+        else{ //other wise...
+            results = rc.toArray().length; //assigns the length of the ArrayList to the variable results as an integer
+                            //should return the total number of references as no type was specified
+        }
         return results;
     }
 
