@@ -7,7 +7,7 @@
 
 			<p>Journal Articles</p>
 			<dl>
-				<dd>Number of journal articles: </dd>
+				<dd>Number of journal articles: </dd><dd></dd>
 				<dd>Most frequent journal: </dd>
 				<dd>Most frequent publisher: </dd>
 			</dl>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bibliography>
+    <item category="journal">
+        <title>Title-G-1</title>
+		<author>Kevin Bacon</author>
+		<doi>580/491</doi>
+		<publisher>IEEE</publisher>
+		<pubYear>2007</pubYear>
+		<dateAdded>13/2/2021</dateAdded>
+		<journalTitle>journal-x</journalTitle>
+		<issue>5</issue>
+		<volume>5</volume>
+    </item>
+    <item category="book chapter">
+        <title>Title-D-0</title>
+		<author>Jason Adair</author>
+		<doi>202/1031</doi>
+		<publisher>ACM</publisher>
+		<pubYear>2006</pubYear>
+		<dateAdded>8/5/2021</dateAdded>
+		<bookTitle>book-a</bookTitle>
+		<editor>Mina Mouse</editor>
+    </item>
+    <item category="conference">
+        <title>Title-C-1</title>
+		<author>Kevin Bacon</author>
+		<doi>611/1124</doi>
+		<publisher>Springer</publisher>
+		<pubYear>2019</pubYear>
+		<dateAdded>23/11/2021</dateAdded>
+		<venue>Conference-2</venue>
+		<location>Location-R</location>
+    </item>
+</bibliography>
