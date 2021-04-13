@@ -11,6 +11,28 @@
 		<issue>5</issue>
 		<volume>5</volume>
     </item>
+	<item category="journal">
+		<title>Title-F-2</title>
+		<author>Saemi Haraldsson</author>
+		<doi>1045/875</doi>
+		<publisher>IEEE</publisher>
+		<pubYear>2004</pubYear>
+		<dateAdded>27/10/2021</dateAdded>
+		<journalTitle>journal-x</journalTitle>
+		<issue>1</issue>
+		<volume>5</volume>
+	</item>
+	<item category="journal">
+		<title>Title-D-0</title>
+		<author>Jason Adair</author>
+		<doi>143/657</doi>
+		<publisher>ACM</publisher>
+		<pubYear>2006</pubYear>
+		<dateAdded>23/4/2021</dateAdded>
+		<journalTitle>journal-z</journalTitle>
+		<issue>1</issue>
+		<volume>8</volume>
+	</item>
     <item category="book chapter">
         <title>Title-D-0</title>
 		<author>Jason Adair</author>
@@ -21,6 +43,16 @@
 		<bookTitle>book-a</bookTitle>
 		<editor>Mina Mouse</editor>
     </item>
+	<item category="book chapter">
+		<title>Title-F-2</title>
+		<author>Jason Adair</author>
+		<doi>1024/463</doi>
+		<publisher>ACM</publisher>
+		<pubYear>2006</pubYear>
+		<dateAdded>13/7/2021</dateAdded>
+		<bookTitle>book-b</bookTitle>
+		<editor>Donald Duck</editor>
+	</item>
     <item category="conference">
         <title>Title-C-1</title>
 		<author>Kevin Bacon</author>

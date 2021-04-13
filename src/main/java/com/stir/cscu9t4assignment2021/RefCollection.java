@@ -32,14 +32,14 @@ public class RefCollection {
         String result = "";
         while(iter.hasNext()){
             RefJournal current = iter.next();
-            while(current.getJournal()==journal){
+            if (current.getJournal().equals(journal)){
                 result = result + current.getCitation();
-                break;
+
+            }
+            if(result.equals("")){
+                result = "There are no citations from the specified journal";
             }
             break;
-        }
-        if(result.equals("")){
-            result = "There are no citations from the specified journal";
         }
         return result;
     }
@@ -54,14 +54,13 @@ public class RefCollection {
         String result = "";
         while(iter.hasNext()){
             RefConference current = iter.next();
-            while(current.getVenue()==venue){
+            if (current.getVenue().equals(venue)){
                 result = result +current.getCitation();
-                break;
+            }
+            if(result.equals("")){
+                result = "There are no citations from conferences at the specified venue";
             }
             break;
-        }
-        if(result.equals("")){
-            result = "There are no citations from conferences at the specified venue";
         }
         return result;
     }
@@ -76,14 +75,13 @@ public class RefCollection {
         String result = "";
         while(iter.hasNext()){
             Ref current = iter.next();
-            while(current.getPublisher()==publisher){
+            if (current.getPublisher().equals(publisher)){
                 result = current.getCitation();
-                break;
+            }
+            if(result.equals("")){
+                result = "There are no citations from the specified publisher";
             }
             break;
-        }
-        if(result.equals("")){
-            result = "There are no citations from the specified publisher";
         }
         return result;    }
 

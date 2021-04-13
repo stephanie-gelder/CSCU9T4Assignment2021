@@ -365,7 +365,6 @@ public class RefSystemGUI extends JFrame implements ActionListener {
             r = new Ref(t, a, d, p, py);
             bibliography.addCite(r);
         }
-        //bibliography.addCite(r);
         return message;
     }
 
