@@ -212,7 +212,7 @@ public class RefSystemGUI extends JFrame implements ActionListener {
 
         add(outputArea);
         outputArea.setEditable(false);
-        //setSize(850, 700);
+        setSize(850, 700);
         pack();
         setVisible(true);
         blankDisplay();
@@ -224,7 +224,7 @@ public class RefSystemGUI extends JFrame implements ActionListener {
      */
     public void actionPerformed(ActionEvent event) {
         String message = "";
-        if(event.getSource()==addRef){
+        if(event.getSource()==addRef){ //when the addRef button is pressed a reference is added depending on which radio button is selected
             if (rbBook.isSelected()){
                 message = addCite("book");
             }
@@ -235,7 +235,7 @@ public class RefSystemGUI extends JFrame implements ActionListener {
                 message = addCite("conference");
             }
         }
-
+        //'muting' irrelevant labels and text fields depending on the selected radio buttons
         if (event.getSource() == rbBook){
             if(rbBook.isSelected()){
                 labIssue.setEnabled(false);
@@ -345,20 +345,20 @@ public class RefSystemGUI extends JFrame implements ActionListener {
         if(what.equals("book")) {
             String b = bookTitle.getText();
             String e = editor.getText();
-            r = new RefBookChapter(t, b, a, d, p, e, py);
+            r = new RefBookChapter(t, b, a, d, p, e, py); //new reference of type bookChapter
             bibliography.addCite(r);
         }
         else if(what.equals("journal")){
             String jt = journalTitle.getText();
             int i = Integer.parseInt(issue.getText());
             int v = Integer.parseInt(volume.getText());
-            r = new RefJournal(t, jt, a, d, p, py, v, i);
+            r = new RefJournal(t, jt, a, d, p, py, v, i); //new reference of type journal
             bibliography.addCite(r);
         }
         else if(what.equals("conference")){
             String v = venue.getText();
             String l = location.getText();
-            r = new RefConference(t, v, a, d, p, l, py);
+            r = new RefConference(t, v, a, d, p, l, py); //new reference of type conference
             bibliography.addCite(r);
         }
         else {
@@ -400,6 +400,8 @@ public class RefSystemGUI extends JFrame implements ActionListener {
 
     /**
      * Method to import references from a csv file
+     * @param fileName
+     * @return
      */
     public String importReferences(String fileName){
         String message = "Importing References\n";

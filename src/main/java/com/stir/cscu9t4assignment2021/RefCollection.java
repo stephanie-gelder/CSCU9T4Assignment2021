@@ -20,7 +20,7 @@ public class RefCollection {
     //method to add a citation to the list of references
     public void addCite(Ref ref){
         rc.add(ref);
-    }
+    }//addCite
 
     /**
      * Method to search for references from a specific journal
@@ -88,6 +88,7 @@ public class RefCollection {
     /**
      * Method to get the total number of each type of reference
      * @param type
+     * @return
      */
     public int getNumberOfRefs(String type){
         int results = 0;
